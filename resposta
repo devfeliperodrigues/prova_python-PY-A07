@@ -1,0 +1,61 @@
+'''Você foi contratado(a) para desenvolver um programa que gerencie um dicionário de alunos onde a chave deste dicionário é o 
+número de matrícula dos próprios alunos. O programa deve permitir adicionar, remover, atualizar e listar os alunos.
+
+Para isso, você deve implementar um módulo que contém as seguintes funções:
+AdicionarAluno(): Solicita ao usuário que digite o nome e o número de matrícula de um aluno e adicione-o ao dicionário de alunos.
+RemoverAluno(): Solicita ao usuário que digite o número de matrícula de um aluno e remove-o do dicionário de alunos.
+AtualizarAluno(): Solicita ao usuário que digite o número de matrícula de um aluno e atualize o nome desse aluno no dicionário .
+VerAlunos(): Lista todos os alunos cadastrados, exibindo o número de matrícula e o nome de cada um.
+Lembre Se de Modularizar o código'''
+
+def AdicionarAluno():
+    nome = input("Digite o nome do aluno: ")
+    matricula = input("Digite o número de matrícula do aluno: ")
+    alunos[matricula] = nome
+    
+def RemoverAluno():
+    matricula = input("Digite o número de matrícula do aluno: ")
+    if matricula in alunos:
+        del alunos[matricula]
+    else:
+        print("Aluno não encontrado.")
+        
+def AtualizarAluno():
+    matricula = input("Digite o número de matrícula do aluno: ")
+    if matricula in alunos:
+        nome = input("Digite o nome do aluno: ")
+        alunos[matricula] = nome
+    else:
+        print("Aluno não encontrado.")
+
+def VerAlunos():
+    for matricula, nome in alunos.items():
+        print(f"Matrícula: {matricula}. Nome: {nome}.")
+
+alunos = {}
+
+    
+while True:
+    print("1 - Adicionar aluno.")
+    print("2 - Remover aluno.")
+    print("3 - Atualizar aluno.")
+    print("4 - Ver alunos.")
+    print("5 - Sair.")
+        
+    opcao = input("Digite uma opção: ")
+        
+    match opcao:
+        case "1":
+            AdicionarAluno()
+        case "2":
+            RemoverAluno()
+        case "3":
+            AtualizarAluno()
+        case "4":
+            VerAlunos()
+        case "5":
+            break
+        case _:
+            print("Opção inválida.")
+   
+print("Programa finalizado.")
